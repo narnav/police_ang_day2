@@ -17,12 +17,12 @@ products:Prod[]=[]
   getData(){
     this.prdSrv.getProducts().subscribe(res => this.products=res)
   }
-  addProduct(){
-    this.prdSrv.addProduct({
-      "desc": "test product",
-      "price": 5
-    }).subscribe(res => this.getData()    )
+  addProduct(desc:string,price:number){
+    this.prdSrv.addProduct({desc,price}).subscribe(res => this.getData()    )
 
   }
+  delProd(id:number=0){
+    this.prdSrv.delProduct(id).subscribe(res => this.getData())
 
+  }
 }

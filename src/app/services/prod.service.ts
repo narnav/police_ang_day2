@@ -15,4 +15,7 @@ export class ProdService {
   addProduct(prd:Prod): Observable<any> {
     return this.prdSrv.post<any>(this.MY_SERVER,prd);
   }
+  delProduct(id:number): Observable<any> {
+    return this.prdSrv.delete<any>(this.MY_SERVER + "/" +id);
+  }
 }

@@ -1,7 +1,11 @@
 <h1>My Products</h1>
-<button (click)="addProduct()">Add</button>
+Desc:<input #desc>
+Price:<input #price>
+<button (click)="addProduct(desc.value,+price.value)">Add</button>
 <ul className="products" *ngFor="let product of products">
-    <li>desc:{{product.desc}} ,price:
-    {{product.price}}</li>
+    <li><button (click)="delProd(product.id)">Del{{product.id}}</button> &nbsp;
+     desc:{{product.desc}}
+     ,price:{{product.price}}</li>
+
 
 </ul>
