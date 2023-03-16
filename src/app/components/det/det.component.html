@@ -1,0 +1,13 @@
+<!-- {{myProduct|json}} -->
+<li>
+  <!-- <button (click)="updProd(myProduct.id,desc.value,+price.value)">Update</button>&nbsp;
+      <button (click)="delProd(myProduct.id)">Del{{myProduct.id}}</button> &nbsp; -->
+  desc:{{ myProduct?.desc }} ,price:{{ myProduct?.price }}
+</li>
+<button (click)="setEdit()">Edit</button>
+
+{{ editFlag }}
+<div *ngIf="editFlag">
+  Desc:<input #desc />
+  Price:<input #price />
+</div>

@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdComponent } from './components/prod/prod.component';
+import { DetComponent } from './components/det/det.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProdComponent
+    ProdComponent,
+    DetComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,6 @@ export class ProdComponent {
 products:Prod[]=[]
   constructor(private prdSrv:ProdService) {
     this.getData()
-
   }
 
   getData(){
@@ -19,10 +18,11 @@ products:Prod[]=[]
   }
   addProduct(desc:string,price:number){
     this.prdSrv.addProduct({desc,price}).subscribe(res => this.getData()    )
-
   }
   delProd(id:number=0){
     this.prdSrv.delProduct(id).subscribe(res => this.getData())
-
+  }
+  updProd(id:number=0,desc:string,price:number){
+    this.prdSrv.updProduct(id,{desc,price}).subscribe(res => this.getData())
   }
 }
