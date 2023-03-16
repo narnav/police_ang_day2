@@ -8,6 +8,7 @@
 
 {{ editFlag }}
 <div *ngIf="editFlag">
-  Desc:<input #desc />
-  Price:<input #price />
+  Desc:<input #desc [value]="myProduct?.desc" />
+  Price:<input #price [value]="myProduct?.price"/>
+  <button (click)="onSave(desc.value,+price.value)">save</button>
 </div>

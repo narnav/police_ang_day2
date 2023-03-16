@@ -3,7 +3,7 @@ Desc:<input #desc>
 Price:<input #price>
 <button (click)="addProduct(desc.value,+price.value)">Add</button>
 <ul className="products" *ngFor="let product of products">
-  <app-det [myProduct]="product"></app-det>
+  <app-det [myProduct]="product" (saveProd)="updProd($event)"></app-det>
     <!-- <li>
       <button (click)="updProd(product.id,desc.value,+price.value)">Update</button>&nbsp;
       <button (click)="delProd(product.id)">Del{{product.id}}</button> &nbsp;

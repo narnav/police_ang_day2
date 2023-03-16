@@ -5,24 +5,31 @@ import { ProdService } from 'src/app/services/prod.service';
 @Component({
   selector: 'app-prod',
   templateUrl: './prod.component.html',
-  styleUrls: ['./prod.component.css']
+  styleUrls: ['./prod.component.css'],
 })
 export class ProdComponent {
-products:Prod[]=[]
-  constructor(private prdSrv:ProdService) {
-    this.getData()
+  products: Prod[] = [];
+  constructor(private prdSrv: ProdService) {
+    this.getData();
   }
 
-  getData(){
-    this.prdSrv.getProducts().subscribe(res => this.products=res)
+  getData() {
+    this.prdSrv.getProducts().subscribe((res) => (this.products = res));
   }
-  addProduct(desc:string,price:number){
-    this.prdSrv.addProduct({desc,price}).subscribe(res => this.getData()    )
+  addProduct(desc: string, price: number) {
+    this.prdSrv.addProduct({ desc, price }).subscribe((res) => this.getData());
   }
-  delProd(id:number=0){
-    this.prdSrv.delProduct(id).subscribe(res => this.getData())
+  delProd(id: number = 0) {
+    this.prdSrv.delProduct(id).subscribe((res) => this.getData());
   }
-  updProd(id:number=0,desc:string,price:number){
-    this.prdSrv.updProduct(id,{desc,price}).subscribe(res => this.getData())
+  updProd(prod: Prod) {
+    console.log(prod);
+    if (prod)
+      this.prdSrv
+        .updProduct(prod.id ? prod.id : 0, {
+          desc: prod.desc,
+          price: prod.price,
+        })
+        .subscribe((res) => this.getData());
   }
 }
